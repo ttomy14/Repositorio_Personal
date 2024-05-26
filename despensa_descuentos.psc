@@ -1,29 +1,23 @@
-Algoritmo descuento_despensa
-    Definir cantidad, precioUnidad, descuento, totalPagar como Real
+Algoritmo Despensa
+	Escribir "Ingresar cantidad de unidades que desea comprar: "
+	Leer unidades
+	Escribir "Cliente jubilado (si/no) "
+	leer jubilado
+	costo = 1000 * unidades
+	Si  unidades > 12 y unidades <= 24 Entonces
+		total = costo - costo * 0.1
+	SiNo
+		Si unidades > 24 Entonces
+			total = costo - costo * 0.15
+		SiNo 
+			total = costo
+		FinSi
+	Fin Si
 	
-    Escribir "Ingrese la cantidad de unidades compradas:"
-    Leer cantidad
+	Si jubilado == "si" Entonces
+		total = total - total * 0.10
+	Fin Si
 	
-    precioUnidad = 1000
-	
-    Si cantidad > 24 Entonces
-        descuento = 15 / 100
-    Sino
-        Si cantidad >= 12 y cantidad <= 24 Entonces
-            descuento = 10 / 100
-            descuento = 0
-        FinSi
-    FinSi
-	
-    totalPagar = cantidad * precioUnidad * (1 - descuento)
-	
-    Escribir "Ingrese 1 si es jubilado, de lo contrario ingrese 0:"
-    Leer esJubilado
-	
-    Si esJubilado = 1 Entonces
-        descuento = descuento + 10 / 100
-        totalPagar = totalPagar * (1 - descuento)
-    FinSi
-	
-    Escribir "El total a pagar es:", totalPagar
+	Escribir "El total es: ",total
+			
 FinAlgoritmo

@@ -19,34 +19,26 @@ Desarrolle una solución algorítmica para saber cuento debe pagar el cliente.''
 
 
 
-cantidadLeche = int(input("Ingresar cantidad de cajas que el cliente va a comprar: "))
-jubilado = int(input("Ingresar 1 si el cliente es jubilado. Cualquier otro número si no lo está: "))
+unidades = int(input("Ingresar cantidad de unidades que desea comprar: "))
+jubilado = input("Cliente jubilado: (si/no) ")
 
-precio = cantidadLeche * 1000
-print(f"cantidadLeche {cantidadLeche} jubilado {jubilado}")
+# Precio unitario de la leche
+precio_unitario = 1000
+costo = precio_unitario * unidades
 
-if (cantidadLeche <= 12 and not jubilado):
-    print("cantiadadLeche <= 12 and not jubilado")
-    precioTotal = precio
-elif((cantidadLeche >= 12 and cantidadLeche <= 24)and not jubilado):
-    print("(cantidadLeche >12 and cantidadLeche <=24) and not jubilado")
-    precioTotal = precio * 0.9
-elif ("cantidadLeche > 24 and not jubialdo"):
-    print("cantidadLeche > 24 and not jubilado")
-    preciotTotal = precio * 0.85
+# Aplicar descuentos por cantidad
+if unidades > 12 and unidades <= 24:
+    total = costo - costo * 0.1
+elif unidades > 24:
+    total = costo - costo * 0.15
+else:
+    total = costo
 
-elif(cantidadLeche <=12 and jubilado):
-    print("cantidadLeche <= 12 and jubilado")
-    precioTotal = precio * 0.9
-elif((cantidadLeche >= 12 and cantidadLeche <= 24) and jubilado):
-    print("(cantidadLeche > 12 and cantidadLeche <= 24) and jubilado")
-    precioTotal = precio * 0.8
-elif(cantidadLeche > 24 and jubilado):
-    print("cantidadLeche > 24 and jubilado")
-    precioTotal = precio * 0.75
+# Aplicar descuento adicional por ser jubilado
+if jubilado.lower() == "si":
+    total = total - total * 0.10
 
-    print(f"El monto sin descuento es: {precio} y el precio total con el descuento incluído es: {precioTotal}")
-
+print("El total es: ", total)
 
 
 
